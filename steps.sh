@@ -68,3 +68,22 @@ nvm install latest / (specific version of node)
 
 #installing pm2
 npm install pm2 -g && pm2 update
+
+#S3 Policies to allow access to CloudFront
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetBucketAcl",
+            "Resource": "arn:aws:s3:::upworkdummy"
+        },
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::upworkdummy/*"
+        }
+    ]
+}
